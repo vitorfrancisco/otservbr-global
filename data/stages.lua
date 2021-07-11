@@ -28,22 +28,22 @@ skillsStages = {
 	{
 		minlevel = 10,
 		maxlevel = 60,
-		multiplier = 15
+		multiplier = 600
 	}, {
 		minlevel = 61,
 		maxlevel = 80,
-		multiplier = 10
+		multiplier = 600
 	}, {
 		minlevel = 81,
 		maxlevel = 110,
-		multiplier = 6
+		multiplier = 600
 	}, {
 		minlevel = 111,
 		maxlevel = 125,
-		multiplier = 4
+		multiplier = 600
 	}, {
 		minlevel = 126,
-		multiplier = 2
+		multiplier = 40
 	}
 }
 
