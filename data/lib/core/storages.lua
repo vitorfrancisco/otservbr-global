@@ -1738,6 +1738,7 @@ Storage = {
 		-- Reserved storage 52360-52395 (TheRookieGuard)
 		-- Reserved storage 52396-52410 (TheOrderOfTheLion)
 		Drume = {
+			QuestLine = 59601,
 			Commander = 52396, -- Global
 			TotalLionCommanders = 52397, -- Global
 			TotalUsurperCommanders = 52398, -- Global

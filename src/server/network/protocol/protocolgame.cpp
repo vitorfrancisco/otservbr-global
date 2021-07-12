@@ -519,6 +519,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage &msg)
 	if (clientVersion != g_config.getNumber(ConfigManager::CLIENT_VERSION))
 	{
 		std::ostringstream ss;
+		ss << "Only clients with protocol " << clientVersion << " allowed!";
 		ss << "Only clients with protocol " << g_config.getString(ConfigManager::CLIENT_VERSION_STR) << " allowed!";
 		disconnectClient(ss.str());
 		return;

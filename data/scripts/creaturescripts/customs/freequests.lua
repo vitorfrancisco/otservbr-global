@@ -324,7 +324,14 @@ local questTable = {
 [323] = {storageId = Storage.ForgottenKnowledge.AccessEarth, storageValue = 1},
 [324] = {storageId = Storage.ForgottenKnowledge.AccessFire, storageValue = 1},
 [325] = {storageId = Storage.ForgottenKnowledge.AccessIce, storageValue = 1},
-[326] = {storageId = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1}
+[326] = {storageId = Storage.ForgottenKnowledge.AccessGolden, storageValue = 1},
+[327] = {storageId = Storage.GraveDanger.Questline, storageValue = 1},
+[328] = {storageId = Storage.GraveDanger.DukeKruleTime, storageValue = 1},
+[329] = {storageId = Storage.TheOrderOfTheLion.Drume.Commander, storageValue = 1},
+[330] = {storageId = Storage.TheOrderOfTheLion.Drume.TotalLionCommanders, storageValue = 1},
+[331] = {storageId = Storage.TheOrderOfTheLion.Drume.TotalUsurperCommanders, storageValue = 1},
+[332] = {storageId = Storage.TheOrderOfTheLion.Drume.Timer, storageValue = 1},
+[333] = {storageId = Storage.TheOrderOfTheLion.Drume.QuestLine, storageValue = 1},
 }
 
 local upperLimit = 1 -- change upperLimit to a higher one after adding a new quest to questTable
