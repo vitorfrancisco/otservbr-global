@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "an goshnar's megalomania"
 monster.experience = 0
 monster.outfit = {
-	lookType = 1318,
+	lookType = 1308,
 	lookHead = 0,
 	lookBody = 78,
 	lookLegs = 57,
@@ -15,7 +15,7 @@ monster.outfit = {
 
 monster.health = 9000
 monster.maxHealth = 9000
-monster.race = "ghost"
+monster.race = "blood"
 monster.corpse = 38796
 monster.speed = 250
 monster.summonCost = 0
