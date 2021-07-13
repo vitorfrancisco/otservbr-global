@@ -2095,6 +2095,15 @@ GameStore.Categories = {
           type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
         },
         {
+          icons = { "Outfit_Pharaoh_Male_Addon_3.png", "Outfit_Pharaoh_Female_Addon_3.png" },
+          name = "Dragon Knight Outfit",
+          price = 750,
+          sexId = {female = 1445,male = 1444},
+          addon = 3,
+          description = "{character}\n{info} colours can be changed using the Outfit dialog\n{info} includes basic outfit and 2 addons which can be selected individually\n\n<i>You know how to read hieroglyphs? You admire the exceptional architectural abilities and the unsolved mysteries of an ancient high culture? Next time you pay a visit to your friends, tell them to prepare a bathtub full of milk and honey for you because a Pharaoh is now walking through the streets of Ankrahmun!</i>",
+          type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
+        },
+        {
           icons = { "Outfit_Philosopher_Male_Addon_3.png", "Outfit_Philosopher_Female_Addon_3.png" },
           name = "Full Philosopher Outfit",
           price = 750,
