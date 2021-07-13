@@ -13,13 +13,13 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 9000
-monster.maxHealth = 9000
+monster.health = 900000
+monster.maxHealth = 900000
 monster.race = "blood"
 monster.corpse = 38796
 monster.speed = 250
 monster.summonCost = 0
-monster.maxSummons = 0
+monster.maxSummons = 4
 
 monster.changeTarget = {
 	interval = 4000,
@@ -71,6 +71,10 @@ monster.attacks = {
 monster.defenses = {
 	defense = 86,
 	armor = 86
+}
+
+monster.summons = {
+	{name = "fire elemental", chance = 10, interval = 2000}
 }
 
 monster.elements = {

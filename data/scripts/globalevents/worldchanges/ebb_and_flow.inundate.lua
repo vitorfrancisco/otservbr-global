@@ -92,7 +92,6 @@ local function playerInSafeSpot()
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-                print('playerInSafeSpot', spec:getName())
 				return true
 			end
 		end
@@ -287,10 +286,8 @@ local eddAndFlowInundate = GlobalEvent("eddAndFlowInundate")
 function eddAndFlowInundate.onThink(interval, lastExecution)
 	 if ChecksPlayersOnSecondFloor() or ChecksPlayersOnFirstFloor() then
 		Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Active, 1)
-		print('Ebb And Flow - Ativado')
 	 else
 		Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Active, 0)
-		print('Ebb And Flow - Desativado')
 	 end
 		 
 	if Game.getStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Active) == 0 then
@@ -351,7 +348,6 @@ function teleportRaft.onStepIn(creature, item, pos, fromPosition)
 			return false
 		end
 		local posTp = item:getPosition()
-		print(posTp.x,posTp.y,posTp.z)
 		for i = 1, #config.teleportsRaft do
 			if config.teleportsRaft[i].teleportFrom == posTp then
 				creature:teleportTo(config.teleportsRaft[i].teleportTo)
