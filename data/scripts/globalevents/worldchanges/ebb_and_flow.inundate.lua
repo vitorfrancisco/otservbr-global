@@ -1,68 +1,65 @@
 local config = {
     -- Posição inicial para onde os players serão teleportados quando o mapa for inundado e não estejam no raft
-    waitPosition = Position(33892, 31020, 8),
+    waitPosition = Position(33890, 31001, 8),
 
     -- Tempo para ocorrer a alteração, tempo padrão é 2 minutos (120 * 1000)
-    interval = (30 * 1000),
+    interval = (120 * 1000),
 
     -- Posição central da cave no primeiro andar para ser usada como referencia do getSpectators
 	positionFirstFloor = {fromPosition = Position(33880, 31003, 8), toPosition = Position(33965, 31140, 8),center = Position(33920, 31073, 8)},
     -- Posições da cave no segundo andar para ser usada como referencia do getSpectators
 	positionSecondFloor = {fromPosition = Position(33880, 31003, 9), toPosition = Position(33965, 31140, 9), center = Position(33920, 31073, 9)},
 	boatPositionEmptyRoom = {
-		{center = Position(33941, 31114, 9),
-         rangeMinX = 2, rangeMaxX = 3, rangeMinY = 2, rangeMaxY = 2
+		{center = Position(33925, 31093, 9),
+         rangeMinX = 4, rangeMaxX = 4, rangeMinY = 4, rangeMaxY = 4
         },
-		{center = Position(33927, 31021, 9),
-        rangeMinX = 2, rangeMaxX = 2, rangeMinY = 1, rangeMaxY = 2
-        }
 	},
 	boatPositionFloodedRoom = {
-		{center = Position(33941, 31114, 8),
-		 rangeMinX = 2, rangeMaxX = 3, rangeMinY = 2, rangeMaxY = 2
+		{center = Position(33925, 31093, 8),
+		 rangeMinX = 4, rangeMaxX = 4, rangeMinY = 4, rangeMaxY = 4
 		},
-		{center = Position(33927, 31021, 8),
-		 rangeMinX = 2, rangeMaxX = 2, rangeMinY = 1, rangeMaxY = 2
-		}
 	},
 	safeSpots = {
-		{center = Position(33941, 31020, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 8, rangeMaxY = 9},
-		{center = Position(33939, 31047, 9), rangeMinX = 8, rangeMaxX = 9, rangeMinY = 8, rangeMaxY = 8},
-		{center = Position(33893, 31046, 9), rangeMinX = 5, rangeMaxX = 5, rangeMinY = 10, rangeMaxY = 10},
-		{center = Position(33904, 31050, 9), rangeMinX = 6, rangeMaxX = 7, rangeMinY = 10, rangeMaxY = 10},
-		{center = Position(33915, 31046, 9), rangeMinX = 5, rangeMaxX = 6, rangeMinY = 10, rangeMaxY = 10},
-		{center = Position(33900, 31069, 9), rangeMinX = 6, rangeMaxX = 6, rangeMinY = 6, rangeMaxY = 7},
-		{center = Position(33906, 31086, 9), rangeMinX = 12, rangeMaxX = 12, rangeMinY = 11, rangeMaxY = 10},
-		{center = Position(33900, 31098, 9), rangeMinX = 8, rangeMaxX = 8, rangeMinY = 6, rangeMaxY = 6},
-		{center = Position(33940, 31072, 9), rangeMinX = 10, rangeMaxX = 10, rangeMinY = 8, rangeMaxY = 8},
-		{center = Position(33928, 31075, 9), rangeMinX = 4, rangeMaxX = 3, rangeMinY = 5, rangeMaxY = 5},
-		{center = Position(33941, 31084, 9), rangeMinX = 9, rangeMaxX = 9, rangeMinY = 5, rangeMaxY = 4},
-		{center = Position(33904, 31122, 9), rangeMinX = 9, rangeMaxX = 10, rangeMinY = 11, rangeMaxY = 10},
-		{center = Position(33931, 31105, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 5, rangeMaxY = 5},
-		{center = Position(33929, 31114, 9), rangeMinX = 9, rangeMaxX = 8, rangeMinY = 5, rangeMaxY = 5},
-		{center = Position(33931, 31122, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 4, rangeMaxY = 5},
+		{center = Position(33925,31092, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 8, rangeMaxY = 9},
+		-- {center = Position(33939, 31047, 9), rangeMinX = 8, rangeMaxX = 9, rangeMinY = 8, rangeMaxY = 8},
+		-- {center = Position(33893, 31046, 9), rangeMinX = 5, rangeMaxX = 5, rangeMinY = 10, rangeMaxY = 10},
+		-- {center = Position(33904, 31050, 9), rangeMinX = 6, rangeMaxX = 7, rangeMinY = 10, rangeMaxY = 10},
+		-- {center = Position(33915, 31046, 9), rangeMinX = 5, rangeMaxX = 6, rangeMinY = 10, rangeMaxY = 10},
+		-- {center = Position(33900, 31069, 9), rangeMinX = 6, rangeMaxX = 6, rangeMinY = 6, rangeMaxY = 7},
+		-- {center = Position(33906, 31086, 9), rangeMinX = 12, rangeMaxX = 12, rangeMinY = 11, rangeMaxY = 10},
+		-- {center = Position(33900, 31098, 9), rangeMinX = 8, rangeMaxX = 8, rangeMinY = 6, rangeMaxY = 6},
+		-- {center = Position(33940, 31072, 9), rangeMinX = 10, rangeMaxX = 10, rangeMinY = 8, rangeMaxY = 8},
+		-- {center = Position(33928, 31075, 9), rangeMinX = 4, rangeMaxX = 3, rangeMinY = 5, rangeMaxY = 5},
+		-- {center = Position(33941, 31084, 9), rangeMinX = 9, rangeMaxX = 9, rangeMinY = 5, rangeMaxY = 4},
+		-- {center = Position(33904, 31122, 9), rangeMinX = 9, rangeMaxX = 10, rangeMinY = 11, rangeMaxY = 10},
+		-- {center = Position(33931, 31105, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 5, rangeMaxY = 5},
+		-- {center = Position(33929, 31114, 9), rangeMinX = 9, rangeMaxX = 8, rangeMinY = 5, rangeMaxY = 5},
+		-- {center = Position(33931, 31122, 9), rangeMinX = 11, rangeMaxX = 11, rangeMinY = 4, rangeMaxY = 5},
 	},
 	teleportsRaft = {
-		{teleportFrom = Position(33939, 31112, 8), teleportTo = Position(33935, 31112, 8)},
-		{teleportFrom = Position(33939, 31113, 8), teleportTo = Position(33935, 31113, 8)},
-		{teleportFrom = Position(33939, 31114, 8), teleportTo = Position(33935, 31114, 8)},
-		{teleportFrom = Position(33939, 31115, 8), teleportTo = Position(33935, 31115, 8)},
-		{teleportFrom = Position(33939, 31116, 8), teleportTo = Position(33935, 31116, 8)},
-		{teleportFrom = Position(33944, 31112, 8), teleportTo = Position(33948, 31112, 8)},
-		{teleportFrom = Position(33944, 31113, 8), teleportTo = Position(33948, 31113, 8)},
-		{teleportFrom = Position(33944, 31114, 8), teleportTo = Position(33948, 31114, 8)},
-		{teleportFrom = Position(33944, 31115, 8), teleportTo = Position(33948, 31115, 8)},
-		{teleportFrom = Position(33944, 31116, 8), teleportTo = Position(33948, 31116, 8)},
-		{teleportFrom = Position(33936, 31112, 8), teleportTo = Position(33940, 31112, 8)},
-		{teleportFrom = Position(33936, 31113, 8), teleportTo = Position(33940, 31113, 8)},
-		{teleportFrom = Position(33936, 31114, 8), teleportTo = Position(33940, 31114, 8)},
-		{teleportFrom = Position(33936, 31115, 8), teleportTo = Position(33940, 31115, 8)},
-		{teleportFrom = Position(33936, 31116, 8), teleportTo = Position(33940, 31116, 8)},
-		{teleportFrom = Position(33947, 31112, 8), teleportTo = Position(33943, 31112, 8)},
-		{teleportFrom = Position(33947, 31113, 8), teleportTo = Position(33943, 31113, 8)},
-		{teleportFrom = Position(33947, 31114, 8), teleportTo = Position(33943, 31114, 8)},
-		{teleportFrom = Position(33947, 31115, 8), teleportTo = Position(33943, 31115, 8)},
-		{teleportFrom = Position(33947, 31116, 8), teleportTo = Position(33943, 31116, 8)},
+		{teleportFrom = Position(33920, 31090, 8), teleportTo = Position(33923, 31090, 8)},
+		{teleportFrom = Position(33920, 31091, 8), teleportTo = Position(33923, 31091, 8)},
+		{teleportFrom = Position(33920, 31092, 8), teleportTo = Position(33923, 31092, 8)},
+		{teleportFrom = Position(33920, 31093, 8), teleportTo = Position(33923, 31093, 8)},
+		{teleportFrom = Position(33920, 31094, 8), teleportTo = Position(33923, 31094, 8)},
+
+		{teleportFrom = Position(33923, 31090, 8), teleportTo = Position(33932, 31092, 8)},
+		{teleportFrom = Position(33923, 31091, 8), teleportTo = Position(33932, 31093, 8)},
+		{teleportFrom = Position(33923, 31092, 8), teleportTo = Position(33932, 31094, 8)},
+		{teleportFrom = Position(33923, 31094, 8), teleportTo = Position(33932, 31095, 8)},
+
+		-- VOlta portal boss --
+
+		{teleportFrom = Position(33931, 31091, 8), teleportTo = Position(33919, 31090, 8)},
+		{teleportFrom = Position(33931, 31092, 8), teleportTo = Position(33919, 31091, 8)},
+		{teleportFrom = Position(33931, 31093, 8), teleportTo = Position(33919, 31092, 8)},
+		{teleportFrom = Position(33931, 31094, 8), teleportTo = Position(33919, 31093, 8)},
+		{teleportFrom = Position(33931, 31095, 8), teleportTo = Position(33919, 31094, 8)},
+
+
+		
+		{teleportFrom = Position(33925, 31091, 8), teleportTo = Position(33919, 31090, 8)},
+
 	 }
 }
 
@@ -300,18 +297,18 @@ function eddAndFlowInundate.onThink(interval, lastExecution)
 		return true
 	end
 		if Game.getStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Empty) <= 1 then
-			-- Game.broadcastMessage('Map flooded in 2 minutes.', MESSAGE_EVENT_ADVANCE)
-			addEvent(reloadMap, config.interval)--Correto 120 * 1000
-			addEvent(loadMapInundate, config.interval)--Correto 120 * 1000
-			addEvent(sendPlayerToStart, config.interval)--Correto 120 * 1000
+			Game.broadcastMessage('Map flooded in 2 minutes.', MESSAGE_EVENT_ADVANCE)
+			addEvent(reloadMap, config.interval)
+			addEvent(loadMapInundate, config.interval)
+			addEvent(sendPlayerToStart, config.interval)
 			Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Empty, 2)
 			Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.doors, -1)
 			return true
 		else
-			-- Game.broadcastMessage('Map empty in 2 minutes.', MESSAGE_EVENT_ADVANCE)
-			addEvent(reloadMap, config.interval)--Correto 120 * 1000
-			addEvent(loadMapEmpty, config.interval) --Correto 120 * 1000
-			addEvent(playerInBoatInundateRoom, config.interval) --Correto 120 * 1000
+			Game.broadcastMessage('Map empty in 2 minutes.', MESSAGE_EVENT_ADVANCE)
+			addEvent(reloadMap, config.interval)
+			addEvent(loadMapEmpty, config.interval)
+			addEvent(playerInBoatInundateRoom, config.interval)
 			Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.Empty, 0)
 			Game.setStorageValue(GlobalStorage.SoulWarQuest.EddAndFlow.doors, 1)
 			return true
