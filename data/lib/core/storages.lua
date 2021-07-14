@@ -1205,6 +1205,16 @@ Storage = {
 		Reward = 51400,
 		TheatreScript = 51401
 	},
+	SoulWar = {
+		-- Reserved storage from 515206 - 51409
+		Quest = 515300,
+		Reward = 51950,
+		Mission01 = 514207,
+		Mission02 = 514208,
+		Mission03 = 514209,
+		Mission04 = 51494,
+		Mission05 = 514959,
+	},
 	TheHuntForTheSeaSerpent = {
 		-- Reserved storage from 51410 - 51419
 		CaptainHaba = 51410

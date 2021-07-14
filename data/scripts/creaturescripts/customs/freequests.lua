@@ -331,7 +331,7 @@ local questTable = {
 [330] = {storageId = Storage.TheOrderOfTheLion.Drume.TotalLionCommanders, storageValue = 1},
 [331] = {storageId = Storage.TheOrderOfTheLion.Drume.TotalUsurperCommanders, storageValue = 1},
 [332] = {storageId = Storage.TheOrderOfTheLion.Drume.Timer, storageValue = 1},
-[333] = {storageId = Storage.TheOrderOfTheLion.Drume.QuestLine, storageValue = 1},
+[333] = {storageId = Storage.TheOrderOfTheLion.Drume.QuestLine, storageValue = 1}
 }
 
 local upperLimit = 1 -- change upperLimit to a higher one after adding a new quest to questTable

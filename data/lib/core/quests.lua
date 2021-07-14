@@ -5811,6 +5811,23 @@ if not Quests then
 					}
 				}
 			}
+		},
+		[46] = {
+			name = "Soul War",
+			startStorageId = Storage.SoulWar.Quest,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					name = "Claustrophobic Inferno",
+					storageId = Storage.SoulWar.Mission01,
+					missionId = 514207,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Survival to all raids of  Claustrophobic Inferno and kill Goshnar's Malice.")
+					end
+				}
+			}
 		}
 	}
 end
