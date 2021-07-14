@@ -5826,6 +5826,38 @@ if not Quests then
 					description = function(player)
 						return ("Survival to all raids of  Claustrophobic Inferno and kill Goshnar's Malice.")
 					end
+				},
+				[2] = {
+					name = "Rotten Wasteland",
+					storageId = Storage.SoulWar.Mission02,
+					missionId = 514208,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Find all sanctuaries and kill Goshnar's Hatred.")
+					end
+				},
+				[3] = {
+					name = "Ebb and Flow",
+					storageId = Storage.SoulWar.Mission03,
+					missionId = 514209,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Kill 20 Hazardous Phantom. You killed %d/20 Hazardous Phantoms."):format(
+							math.max(player:getStorageValue(Storage.SoulWar.HazardousPhantom.Counter), 0)
+						)
+					end
+				},
+				[4] = {
+					name = "Furious Crater",
+					storageId = Storage.SoulWar.Mission04,
+					missionId = 51494,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Get the all orbis and kill Goshnar's Cruelty.")
+					end
 				}
 			}
 		}

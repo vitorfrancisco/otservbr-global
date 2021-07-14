@@ -1214,6 +1214,9 @@ Storage = {
 		Mission03 = 514209,
 		Mission04 = 51494,
 		Mission05 = 514959,
+		HazardousPhantom = {
+			Counter = 514960
+		}
 	},
 	TheHuntForTheSeaSerpent = {
 		-- Reserved storage from 51410 - 51419

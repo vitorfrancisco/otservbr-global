@@ -109,10 +109,9 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 1 then
 			player:setStorageValue(Storage.SoulWar.Quest, 1)
             player:setStorageValue(Storage.SoulWar.Mission01, 1)
-            -- player:setStorageValue(Storage.SoulWar.Mission02, 1)
-            -- player:setStorageValue(Storage.SoulWar.Mission01, 1)
-            -- player:setStorageValue(Storage.SoulWar.Mission01, 1)
-            -- player:setStorageValue(Storage.SoulWar.Mission01, 1)
+            player:setStorageValue(Storage.SoulWar.Mission02, 1)
+            player:setStorageValue(Storage.SoulWar.Mission03, 1)
+            player:setStorageValue(Storage.SoulWar.Mission04, 1)
 			npcHandler:say({
 				'Thank you for accepting this burden.'
 			}, cid)
