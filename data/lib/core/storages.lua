@@ -2274,7 +2274,9 @@ Storage = {
 		-- Kilmaresh = {}, done earlier in the file
 		GraveDanger = {},
 		-- update 12.30
-		FeasterOfSouls = {},
+		FeasterOfSouls = {
+			Quest = 3010102201
+		},
 		PoltergeistOutfits = {}
 	}
 }

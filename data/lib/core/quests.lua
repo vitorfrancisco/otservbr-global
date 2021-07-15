@@ -5858,8 +5858,24 @@ if not Quests then
 					description = function(player)
 						return ("Get the all orbis and kill Goshnar's Cruelty.")
 					end
+				},
+				[5] = {
+					name = "Mirrored Nightmare",
+					storageId = Storage.SoulWar.Mission05,
+					missionId = 515300,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Get the all orbis and kill Goshnar's Cruelty.")
+					end
 				}
 			}
+		},
+		[46] = {
+			name = "Feaster of Souls",
+			startStorageId = Storage.Quest.FeasterOfSouls.Quest,
+			startStorageValue = 1,
+			missions = {}
 		}
 	}
 end

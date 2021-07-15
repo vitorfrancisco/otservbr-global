@@ -336,7 +336,10 @@ local questTable = {
 [335] = {storageId = Storage.WhiteRavenMonastery.Passage, storageValue = 1},
 [336] = {storageId = Storage.WhiteRavenMonastery.Diary, storageValue = 1},
 [337] = {storageId = Storage.WhiteRavenMonastery.Door, storageValue = 1},
-
+[338] = {storageId = Storage.SeaOfLight.Questline, storageValue = 1},
+[339] = {storageId = Storage.SeaOfLight.Mission1, storageValue = 4},
+[340] = {storageId = Storage.SeaOfLight.Mission2, storageValue = 3},
+[341] = {storageId = Storage.SeaOfLight.Mission3, storageValue = 4}
 
 }
 

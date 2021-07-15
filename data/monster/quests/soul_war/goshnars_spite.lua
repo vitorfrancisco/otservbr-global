@@ -109,6 +109,10 @@ monster.immunities = {
 	{type = "bleed", condition = false}
 }
 
+-- monster.events = {
+-- 	"GoshnarsSpite"
+-- }
+
 mType.onThink = function(monster, interval)
 end
 
