@@ -2,35 +2,32 @@ local mType = Game.createMonsterType("Goshnar's Spite")
 local monster = {}
 
 monster.description = "goshnars spite"
-monster.experience = 0
+monster.experience = 22000
 monster.outfit = {
 	lookType = 1305,
-	lookHead = 57,
-	lookBody = 75,
-	lookLegs = 38,
-	lookFeet = 86,
-	lookAddons = 0,
+	lookHead = 0,
+	lookBody = 95,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 1,
 	lookMount = 0
 }
 
-monster.health = 512000
-monster.maxHealth = 512000
+monster.health = 28000
+monster.maxHealth = 28000
 monster.race = "blood"
-monster.corpse = 0
-monster.speed = 190
+monster.corpse = 38700
+monster.speed = 300
 monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4000,
-	chance = 10
+	interval = 5000,
+	chance = 8
 }
 
 monster.strategiesTarget = {
-	nearest = 70,
-	health = 10,
-	damage = 10,
-	random = 10,
+	nearest = 100,
 }
 
 monster.flags = {
@@ -39,23 +36,19 @@ monster.flags = {
 	hostile = true,
 	convinceable = false,
 	pushable = false,
-	rewardBoss = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 1,
-	runHealth = 10,
+	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = true,
-	canWalkOnFire = true,
-	canWalkOnPoison = true,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 	pet = false
-}
-
-monster.events = {
-	"UrmahlulluChanges"
 }
 
 monster.light = {
@@ -69,26 +62,38 @@ monster.voices = {
 }
 
 monster.loot = {
+	{name = "platinum coin", chance = 10000, maxCount = 5},
+	{name = "ivory comb", chance = 83330},
+	{name = "skull coin", chance = 66666},
+	{name = "moonstone", chance = 33333, maxCount = 2},
+	{name = "diamond", chance = 8300},
+	{name = "machete", chance = 8300},
+	{name = "pair of nightmare boots", chance = 8300},
+	{name = "skull staff", chance = 8300},
+	{name = "warrior's axe", chance = 8300},
+	{name = "death toll", chance = 150},
+	{name = "silver hand mirror", chance = 150},
+	{name = "red gem", chance = 150, maxCount = 2}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = -150, maxDamage = -1300},
-	{name ="combat", interval = 3000, chance = 20, type = COMBAT_FIREDAMAGE, minDamage = -500, maxDamage = -800, radius = 4, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, type = COMBAT_FIREDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -550, maxDamage = -800, radius = 3, shootEffect = CONST_ANI_ENERGYBALL, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="urmahlulluring", interval = 2000, chance = 18, minDamage = -450, maxDamage = -600, target = false}
+	{name ="melee", interval = 2000, chance = 100, minDamage = -100, maxDamage = -500},
+	{name ="combat", interval = 1500, chance = 15, type = COMBAT_EARTHDAMAGE, minDamage = -300, maxDamage = -500, radius = 3, shootEffect = CONST_ANI_ENVENOMEDARROW, target = true},
+	{name ="combat", interval = 1500, chance = 25, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -650, length = 4, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 1500, chance = 35, type = COMBAT_DEATHDAMAGE, minDamage = -300, maxDamage = -650, radius = 4, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1500, chance = 20, type = COMBAT_ENERGYDAMAGE, minDamage = -300, maxDamage = -650, radius = 4, effect = CONST_ME_ENERGYAREA, target = false}
 }
 
 monster.defenses = {
-	defense = 84,
-	armor = 84
+	defense = 40,
+	armor = 82
 }
 
 monster.elements = {
 	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
-	{type = COMBAT_ENERGYDAMAGE, percent = 40},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
 	{type = COMBAT_EARTHDAMAGE, percent = 0},
-	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
@@ -103,5 +108,23 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
 
 mType:register(monster)
