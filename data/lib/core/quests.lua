@@ -5824,7 +5824,12 @@ if not Quests then
 					startValue = 0,
 					endValue = 2,
 					description = function(player)
-						return ("Survival to all raids of  Claustrophobic Inferno and kill Goshnar's Malice.")
+						return string.format("Survival to all raids to kill Goshnar's Malice\z
+							\nSurvival Raids: You Survival for %d/3 raids\z
+							\nGoshnar's Malice: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.ClaustrophobicInfernoRaidCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsMalice), 0))
+						)
 					end
 				},
 				[2] = {
@@ -5834,7 +5839,18 @@ if not Quests then
 					startValue = 0,
 					endValue = 2,
 					description = function(player)
-						return ("Find all sanctuaries and kill Goshnar's Hatred.")
+						return string.format("Find all sanctuaries and kill Goshnar's Hatred\z
+							\nBlue Shrine:  Find %d/1 of Blue Shrine\z
+							\nOrange Shrine:  Find %d/1 of Blue Shrine\z
+							\nPink Shrine:  Find %d/1 of Blue Shrine\z
+							\nGreen Shrine:  Find %d/1 of Blue Shrine\z
+							\nGoshnar's Hatred: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.BlueShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.OrangeShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.PinkShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.GreenShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsHatred), 0))
+						)
 					end
 				},
 				[3] = {
@@ -5844,8 +5860,10 @@ if not Quests then
 					startValue = 0,
 					endValue = 2,
 					description = function(player)
-						return ("Kill 20 Hazardous Phantom. You killed %d/20 Hazardous Phantoms."):format(
-							math.max(player:getStorageValue(Storage.SoulWar.HazardousPhantom.Counter), 0)
+						return string.format("Kill 20 Hazardous Phantom to kill  Goshnar's Spite. You killed %d/20 Hazardous Phantoms.\z
+							\nGoshnar's Spite: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.HazardousPhantom.Counter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsSpite), 0))
 						)
 					end
 				},
@@ -5866,12 +5884,19 @@ if not Quests then
 					startValue = 0,
 					endValue = 2,
 					description = function(player)
-						return ("Get the all orbis and kill Goshnar's Cruelty.")
+						return string.format("Kill 25 of each Apparition\z\nSorcerer's Apparition: You killed %d/25\z
+						\nDruid's Apparition: You killed %d/25\z\nPaladin's Apparition: You killed %d/25\z
+						\nKnight's Apparition: You killed %d/25",
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.SorcererCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.DruidCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.PaladinCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.KnightCounter), 0))
+						)
 					end
 				}
 			}
 		},
-		[46] = {
+		[47] = {
 			name = "Feaster of Souls",
 			startStorageId = Storage.Quest.FeasterOfSouls.Quest,
 			startStorageValue = 1,

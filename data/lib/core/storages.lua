@@ -1215,9 +1215,28 @@ Storage = {
 		Mission04 = 51494,
 		Mission05 = 514959,
 		HazardousPhantom = {
-			Counter = 514960
+			Counter = 514960,
 		},
 		GoshnarsSpiteTime = 514961,
+		MirrorImage = {
+			DruidCounter = 514962,
+			KnightCounter = 514963,
+			PaladinCounter = 514964,
+			SorcererCounter = 514965,
+		},
+		BossKill = {
+			GoshnarsMalice = 514966,
+			GoshnarsHatred = 514967,
+			GoshnarsSpite = 514968,
+			GoshnarsCruelty = 514969,
+			GoshnarsGreed = 514970,
+			GoshnarsMegalomania = 514971,
+		},
+		ClaustrophobicInfernoRaidCounter = 514972,
+		BlueShrine = 514973,
+		OrangeShrine = 514974,
+		PinkShrine = 514975,
+		GreenShrine = 514976,
 	},
 	TheHuntForTheSeaSerpent = {
 		-- Reserved storage from 51410 - 51419

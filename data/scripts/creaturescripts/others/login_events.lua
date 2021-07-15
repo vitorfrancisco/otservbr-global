@@ -19,6 +19,7 @@ function loginEvents.onLogin(player)
 		"Thegreatdragonhuntkill",
 		-- Soul War
 		"TheHazardousPhantomHuntkill",
+		"MirrorImageHuntKill",
 		--Bigfoot Burden Quest
 		"BossesWarzone",
 		"ParasiteWarzone",
