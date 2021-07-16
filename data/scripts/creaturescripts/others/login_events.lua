@@ -20,6 +20,7 @@ function loginEvents.onLogin(player)
 		-- Soul War
 		"TheHazardousPhantomHuntkill",
 		"MirrorImageHuntKill",
+		"SoulWarBosses",
 		--Bigfoot Burden Quest
 		"BossesWarzone",
 		"ParasiteWarzone",
