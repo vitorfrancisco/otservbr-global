@@ -1,6 +1,6 @@
-local goshnarsHatredEntrance = Action()
+local goshnarsHatredTeleport = MoveEvent()
 
-function goshnarsHatredEntrance.onUse(player, item, position, fromPosition)
+function goshnarsHatredTeleport.onStepIn(player, item, position, fromPosition)
 	if player:getStorageValue(Storage.SoulWar.BlueShrine) == 1 and player:getStorageValue(Storage.SoulWar.OrangeShrine) == 1 and player:getStorageValue(Storage.SoulWar.PinkShrine) == 1 and player:getStorageValue(Storage.SoulWar.GreenShrine) == 0 then
         player:teleportTo(Position(34148, 30999, 11), true)
         return true
@@ -11,5 +11,5 @@ function goshnarsHatredEntrance.onUse(player, item, position, fromPosition)
     end
 end
 
-goshnarsHatredEntrance:aid(59133)
-goshnarsHatredEntrance:register()
+goshnarsHatredTeleport:aid(59133)
+goshnarsHatredTeleport:register()
