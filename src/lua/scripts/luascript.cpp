@@ -5461,6 +5461,7 @@ int LuaScriptInterface::luaGameStartRaid(lua_State* L)
 	return 1;
 }
 
+
 int LuaScriptInterface::luaGameGetClientVersion(lua_State* L)
 {
 	// Game.getClientVersion()

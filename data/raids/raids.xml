@@ -111,4 +111,8 @@
 	<raid name="The Old Widow" file="venore/the_old_widow.xml" interval2="1440" margin="60" />
 	<raid name="Undead Army" file="venore/undead.xml" interval2="500" margin="100" />
 	<raid name="Water Buffalo" file="venore/water_buffalo.xml" interval2="500" margin="100" />
+	<!-- Soul war-->
+	<raid name="Claustrophobic Inferno 1" file="soul_war/claustrophobic_inferno_1.xml" interval2="2" margin="100" />
+	<raid name="Claustrophobic Inferno 2" file="soul_war/claustrophobic_inferno_2.xml" interval2="2" margin="100"  />
+	<raid name="Claustrophobic Inferno 3" file="soul_war/claustrophobic_inferno_3.xml" interval2="2" margin="100"  />
 </raids>
