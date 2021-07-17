@@ -8,4 +8,9 @@
         <monster name="Infernal Demon" amount="2" />
         <monster name="Infernal Phantom" amount="1" />
 	</areaspawn>
+    <areaspawn delay="10000" fromx="339883" fromy="31030" fromz="11" tox="339883" toy="31035" toz="11">
+		<monster name="Brachiodemon" amount="4" />
+        <monster name="Infernal Demon" amount="2" />
+        <monster name="Infernal Phantom" amount="1" />
+	</areaspawn>
 </raid>

@@ -10,7 +10,7 @@ function BlueShrine.onUse(player, item, position, fromPosition)
         return true
     else
         player:setStorageValue(Storage.SoulWar.BlueShrine, 1);
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You get the Orage Shrine")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You get the Blue Shrine")
         return true
     end
 end

@@ -27,7 +27,6 @@ local function raidFinish(uid)
 	for i = 1, #spectators do
 		spectator = spectators[i]
         if spectator:isMonster() then
-            print('is a monster')
             spectator:remove()
         end
 		if spectator:isPlayer() then
