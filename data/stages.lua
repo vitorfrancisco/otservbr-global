@@ -98,27 +98,27 @@ skillsStages = {
 	{
 		minlevel = 0,
 		maxlevel = 30,
-		multiplier = 25
+		multiplier = 50
 	}, {
 		minlevel = 31,
 		maxlevel = 50,
-		multiplier = 20
+		multiplier = 45
 	}, {
 		minlevel = 51,
 		maxlevel = 70,
-		multiplier = 15
+		multiplier = 40
 	}, {
 		minlevel = 71,
 		maxlevel = 80,
-		multiplier = 10
+		multiplier = 35
 	}, {
 		minlevel = 81,
 		maxlevel = 100,
-		multiplier = 8
+		multiplier = 30
 	},
 	{
 		minlevel = 101,
-		multiplier = 6
+		multiplier = 20
 	}
 }
 

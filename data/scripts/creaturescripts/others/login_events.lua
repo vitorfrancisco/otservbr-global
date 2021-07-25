@@ -21,7 +21,7 @@ function loginEvents.onLogin(player)
 		"TheHazardousPhantomHuntkill",
 		"MirrorImageHuntKill",
 		"SoulWarBosses",
-		"ClockOfTerror",
+		-- "ClockOfTerror",
 		--Bigfoot Burden Quest
 		"BossesWarzone",
 		"ParasiteWarzone",
