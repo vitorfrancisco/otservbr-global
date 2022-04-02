@@ -69,8 +69,6 @@ enum GameState_t {
 };
 
 static constexpr int32_t EVENT_LIGHTINTERVAL_MS = 10000;
-static constexpr int32_t EVENT_DECAYINTERVAL = 250;
-static constexpr int32_t EVENT_DECAY_BUCKETS = 4;
 static constexpr int32_t EVENT_IMBUEMENTINTERVAL = 250;
 static constexpr int32_t EVENT_IMBUEMENT_BUCKETS = 4;
 
@@ -390,8 +388,8 @@ class Game
 		void playerOpenChannel(uint32_t playerId, uint16_t channelId);
 		void playerCloseChannel(uint32_t playerId, uint16_t channelId);
 		void playerOpenPrivateChannel(uint32_t playerId, std::string& receiver);
-		void playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems);
-		void playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t stackpos);
+		void playerStowItem(uint32_t playerId, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint8_t count, bool allItems);
+		void playerStashWithdraw(uint32_t playerId, uint16_t spriteId, uint32_t count, uint8_t stackpos);
 		void playerCloseNpcChannel(uint32_t playerId);
 		void playerReceivePing(uint32_t playerId);
 		void playerReceivePingBack(uint32_t playerId);
@@ -493,7 +491,7 @@ class Game
 			return boostedCreature;
 		}
 
-		void onPressHotkeyEquip(Player* player, uint16_t spriteid);
+		void onPressHotkeyEquip(uint32_t playerId, uint16_t spriteid);
 
 		bool canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight = true,
 							  int32_t rangex = Map::maxClientViewportX, int32_t rangey = Map::maxClientViewportY) const;
@@ -543,6 +541,9 @@ class Game
 		}
 
 		void startDecay(Item* item);
+		void stopDecay(Item* item);
+		void internalDecayItem(Item* item);
+
 		int32_t getLightHour() const {
 			return lightHour;
 		}
@@ -598,8 +599,6 @@ class Game
 		Mounts mounts;
 		Raids raids;
 		GameStore gameStore;
-
-		std::forward_list<Item*> toDecayItems;
 
 		std::unordered_set<Tile*> getTilesToClean() const {
 			return tilesToClean;
@@ -666,17 +665,11 @@ class Game
 		bool playerSpeakTo(Player* player, SpeakClasses type, const std::string& receiver, const std::string& text);
 		void playerSpeakToNpc(Player* player, const std::string& text);
 
-		void checkDecay();
-		void internalDecayItem(Item* item);
-
 		std::unordered_map<uint32_t, Player*> players;
 		std::unordered_map<std::string, Player*> mappedPlayerNames;
 		std::unordered_map<uint32_t, Guild*> guilds;
 		std::unordered_map<uint16_t, Item*> uniqueItems;
 		std::map<uint32_t, uint32_t> stages;
-
-		std::list<Item*> decayItems[EVENT_DECAY_BUCKETS];
-		std::list<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];
 
 		std::list<Item*> imbuedItems[EVENT_IMBUEMENT_BUCKETS];
 
@@ -685,6 +678,7 @@ class Game
 
 		std::vector<Charm*> CharmList;
 		std::vector<Creature*> ToReleaseCreatures;
+		std::vector<Creature*> checkCreatureLists[EVENT_CREATURECOUNT];
 		std::vector<Item*> ToReleaseItems;
 
 		size_t lastBucket = 0;

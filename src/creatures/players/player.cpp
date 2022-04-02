@@ -66,12 +66,14 @@ Player::~Player()
 	for (Item* item : inventory) {
 		if (item) {
 			item->setParent(nullptr);
+			item->stopDecaying();
 			item->decrementReferenceCounter();
 		}
 	}
 
 	for (const auto& it : depotLockerMap) {
 		it.second->removeInbox(inbox);
+		it.second->stopDecaying();
 		it.second->decrementReferenceCounter();
 	}
 
@@ -83,6 +85,7 @@ Player::~Player()
 		it.second->decrementReferenceCounter();
 	}
 
+	inbox->stopDecaying();
 	inbox->decrementReferenceCounter();
 
 	setWriteItem(nullptr);
@@ -101,9 +104,9 @@ bool Player::setVocation(uint16_t vocId)
 	Condition* condition = getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT);
 	if (condition) {
 		condition->setParam(CONDITION_PARAM_HEALTHGAIN, vocation->getHealthGainAmount());
-		condition->setParam(CONDITION_PARAM_HEALTHTICKS, vocation->getHealthGainTicks() * 1000);
+		condition->setParam(CONDITION_PARAM_HEALTHTICKS, vocation->getHealthGainTicks());
 		condition->setParam(CONDITION_PARAM_MANAGAIN, vocation->getManaGainAmount());
-		condition->setParam(CONDITION_PARAM_MANATICKS, vocation->getManaGainTicks() * 1000);
+		condition->setParam(CONDITION_PARAM_MANATICKS, vocation->getManaGainTicks());
 	}
 	g_game.addPlayerVocation(this);
 	return true;
@@ -435,7 +438,7 @@ uint32_t Player::getClientIcons() const
 		icons |= ICON_REDSWORDS;
 	}
 
-	if (tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
+	if (tile && tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
 		icons |= ICON_PIGEON;
 		client->sendRestingStatus(1);
 
@@ -480,6 +483,8 @@ void Player::setTraining(bool value) {
 			it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
 		}
 	}
+
+	this->statusVipList = VIPSTATUS_TRAINING;
 	setExerciseTraining(value);
 }
 
@@ -1396,6 +1401,7 @@ void Player::onChangeZone(ZoneType_t zone)
 
 	g_game.updateCreatureWalkthrough(this);
 	sendIcons();
+	g_events->eventPlayerOnChangeZone(this, zone);
 }
 
 void Player::onAttackedCreatureChangeZone(ZoneType_t zone)
@@ -2515,7 +2521,7 @@ void Player::removeList()
 void Player::addList()
 {
 	for (const auto& it : g_game.getPlayers()) {
-		it.second->notifyStatusChange(this, VIPSTATUS_ONLINE);
+		it.second->notifyStatusChange(this, this->statusVipList);
 	}
 
 	g_game.addPlayer(this);
@@ -3237,9 +3243,10 @@ uint32_t Player::getItemTypeCount(uint16_t itemId, int32_t subType /*= -1*/) con
 			count += Item::countByType(item, subType);
 		}
 
-		if (Container* container = item->getContainer()) {
+		Container* container = item->getContainer();
+		if (container) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
-				if ((*it)->getID() == itemId) {
+				if ((*it) && (*it)->getID() == itemId) {
 					count += Item::countByType(*it, subType);
 				}
 			}
@@ -3556,6 +3563,7 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 					for (const auto& it : depotChests) {
 						if (it.second == depotChest) {
 							isOwner = true;
+							it.second->stopDecaying();
 							onSendContainer(container);
 						}
 					}
@@ -4156,7 +4164,7 @@ void Player::changeMana(int32_t manaChange)
 void Player::changeSoul(int32_t soulChange)
 {
 	if (soulChange > 0) {
-		soul += std::min<int32_t>(soulChange, vocation->getSoulMax() - soul);
+		soul += std::min<int32_t>(soulChange * g_config.getFloat(ConfigManager::RATE_SOUL_REGEN), vocation->getSoulMax() - soul);
 	} else {
 		soul = std::max<int32_t>(0, soul + soulChange);
 	}

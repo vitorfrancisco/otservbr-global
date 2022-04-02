@@ -119,6 +119,8 @@ function Creature:onTargetCombat(target)
 			end
 		end
 	end
+
+	self:addEventStamina(target)
 	return true
 end
 
