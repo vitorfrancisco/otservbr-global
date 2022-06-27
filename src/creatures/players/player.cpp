@@ -66,12 +66,14 @@ Player::~Player()
 	for (Item* item : inventory) {
 		if (item) {
 			item->setParent(nullptr);
+			item->stopDecaying();
 			item->decrementReferenceCounter();
 		}
 	}
 
 	for (const auto& it : depotLockerMap) {
 		it.second->removeInbox(inbox);
+		it.second->stopDecaying();
 		it.second->decrementReferenceCounter();
 	}
 
@@ -83,6 +85,7 @@ Player::~Player()
 		it.second->decrementReferenceCounter();
 	}
 
+	inbox->stopDecaying();
 	inbox->decrementReferenceCounter();
 
 	setWriteItem(nullptr);
@@ -480,6 +483,8 @@ void Player::setTraining(bool value) {
 			it.second->notifyStatusChange(this, value ? VIPSTATUS_TRAINING : VIPSTATUS_ONLINE, false);
 		}
 	}
+
+	this->statusVipList = VIPSTATUS_TRAINING;
 	setExerciseTraining(value);
 }
 
@@ -2516,7 +2521,7 @@ void Player::removeList()
 void Player::addList()
 {
 	for (const auto& it : g_game.getPlayers()) {
-		it.second->notifyStatusChange(this, VIPSTATUS_ONLINE);
+		it.second->notifyStatusChange(this, this->statusVipList);
 	}
 
 	g_game.addPlayer(this);
@@ -3238,9 +3243,10 @@ uint32_t Player::getItemTypeCount(uint16_t itemId, int32_t subType /*= -1*/) con
 			count += Item::countByType(item, subType);
 		}
 
-		if (Container* container = item->getContainer()) {
+		Container* container = item->getContainer();
+		if (container) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
-				if ((*it)->getID() == itemId) {
+				if ((*it) && (*it)->getID() == itemId) {
 					count += Item::countByType(*it, subType);
 				}
 			}
@@ -3557,6 +3563,7 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 					for (const auto& it : depotChests) {
 						if (it.second == depotChest) {
 							isOwner = true;
+							it.second->stopDecaying();
 							onSendContainer(container);
 						}
 					}

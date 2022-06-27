@@ -482,6 +482,12 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 			}
 		}
 
+		if (Player* player = creature->getPlayer()) {
+			if (player->isExerciseTraining()){
+				player->setTraining(false);
+			}
+		}
+
 		if (newTile->getZone() != oldTile->getZone()) {
 			onChangeZone(getZone());
 		}
@@ -710,17 +716,15 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 				break;
 		}
 
-		Tile* updateTile = getTile();
-
+		Tile* tile = getTile();
 		if (splash) {
-			g_game.internalAddItem(updateTile, splash, INDEX_WHEREEVER, FLAG_NOLIMIT);
-			g_game.startDecay(splash);
+			g_game.internalAddItem(tile, splash, INDEX_WHEREEVER, FLAG_NOLIMIT);
+			splash->startDecaying();
 		}
 
 		Item* corpse = getCorpse(lastHitCreature, mostDamageCreature);
 		if (corpse) {
-			g_game.internalAddItem(updateTile, corpse, INDEX_WHEREEVER, FLAG_NOLIMIT);
-			g_game.startDecay(corpse);
+			g_game.internalAddItem(tile, corpse, INDEX_WHEREEVER, FLAG_NOLIMIT);
 		}
 
 		//scripting event - onDeath
@@ -730,6 +734,7 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 
 		if (corpse) {
 			dropLoot(corpse->getContainer(), lastHitCreature);
+			corpse->startDecaying();
 		}
 	}
 

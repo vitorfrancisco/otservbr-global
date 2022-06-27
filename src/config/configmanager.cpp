@@ -129,7 +129,7 @@ bool ConfigManager::load()
 		string[MYSQL_HOST] = getGlobalString(L, "mysqlHost", "127.0.0.1");
 		string[MYSQL_USER] = getGlobalString(L, "mysqlUser", "root");
 		string[MYSQL_PASS] = getGlobalString(L, "mysqlPass", "");
-		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "otservbr-global");
+		string[MYSQL_DB] = getGlobalString(L, "mysqlDatabase", "otservbr-global-archived");
 		string[MYSQL_SOCK] = getGlobalString(L, "mysqlSock", "");
 		string[CLIENT_VERSION_STR] = getGlobalString(L, "clientVersionStr", "12.72");
 
@@ -242,6 +242,7 @@ bool ConfigManager::load()
 	integer[STAMINA_PZ_GAIN] = getGlobalNumber(L, "staminaPzGain", 1);
 	integer[STAMINA_TRAINER_DELAY] = getGlobalNumber(L, "staminaTrainerDelay", 5);
 	integer[STAMINA_TRAINER_GAIN] = getGlobalNumber(L, "staminaTrainerGain", 1);
+	integer[MAX_ALLOWED_ON_A_DUMMY] = getGlobalNumber(L, "maxAllowedOnADummy", 1);
 
 	integer[PARTY_LIST_MAX_DISTANCE] = getGlobalNumber(L, "partyListMaxDistance", 0);
 
