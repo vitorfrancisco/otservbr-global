@@ -332,6 +332,15 @@ local questTable = {
 [331] = {storageId = Storage.TheOrderOfTheLion.Drume.TotalUsurperCommanders, storageValue = 1},
 [332] = {storageId = Storage.TheOrderOfTheLion.Drume.Timer, storageValue = 1},
 [333] = {storageId = Storage.TheOrderOfTheLion.Drume.QuestLine, storageValue = 1},
+[334] = {storageId = Storage.WhiteRavenMonastery.QuestLog, storageValue = 1},
+[335] = {storageId = Storage.WhiteRavenMonastery.Passage, storageValue = 1},
+[336] = {storageId = Storage.WhiteRavenMonastery.Diary, storageValue = 1},
+[337] = {storageId = Storage.WhiteRavenMonastery.Door, storageValue = 1},
+[338] = {storageId = Storage.SeaOfLight.Questline, storageValue = 1},
+[339] = {storageId = Storage.SeaOfLight.Mission1, storageValue = 4},
+[340] = {storageId = Storage.SeaOfLight.Mission2, storageValue = 3},
+[341] = {storageId = Storage.SeaOfLight.Mission3, storageValue = 4}
+
 }
 
 local upperLimit = 1 -- change upperLimit to a higher one after adding a new quest to questTable

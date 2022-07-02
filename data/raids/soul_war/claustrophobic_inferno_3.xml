@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+	<!--Announcements-->
+	<announce delay="1000" type="event" message="Survive to attack of demons." />
+	<!--Single Spawns-->
+	<areaspawn delay="10000" fromx="33978" fromy="31035" fromz="11" tox="33974" toy="31050" toz="11">
+		<monster name="Brachiodemon" amount="4" />
+        <monster name="Infernal Demon" amount="2" />
+        <monster name="Infernal Phantom" amount="1" />
+	</areaspawn>
+    <areaspawn delay="10000" fromx="339883" fromy="31030" fromz="11" tox="339883" toy="31035" toz="11">
+		<monster name="Brachiodemon" amount="4" />
+        <monster name="Infernal Demon" amount="2" />
+        <monster name="Infernal Phantom" amount="1" />
+	</areaspawn>
+</raid>

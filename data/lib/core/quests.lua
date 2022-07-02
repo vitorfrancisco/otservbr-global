@@ -5811,6 +5811,96 @@ if not Quests then
 					}
 				}
 			}
+		},
+		[46] = {
+			name = "Soul War",
+			startStorageId = Storage.SoulWar.Quest,
+			startStorageValue = 1,
+			missions = {
+				[1] = {
+					name = "Claustrophobic Inferno",
+					storageId = Storage.SoulWar.Mission01,
+					missionId = 514207,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return string.format("Survival to all raids to kill Goshnar's Malice\z
+							\nSurvival Raids: You Survival for %d/3 raids\z
+							\nGoshnar's Malice: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.ClaustrophobicInfernoRaidCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsMalice), 0))
+						)
+					end
+				},
+				[2] = {
+					name = "Rotten Wasteland",
+					storageId = Storage.SoulWar.Mission02,
+					missionId = 514208,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return string.format("Find all sanctuaries and kill Goshnar's Hatred\z
+							\nBlue Shrine:  Find %d/1 of Blue Shrine\z
+							\nOrange Shrine:  Find %d/1 of Blue Shrine\z
+							\nPink Shrine:  Find %d/1 of Blue Shrine\z
+							\nGreen Shrine:  Find %d/1 of Blue Shrine\z
+							\nGoshnar's Hatred: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.BlueShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.OrangeShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.PinkShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.GreenShrine), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsHatred), 0))
+						)
+					end
+				},
+				[3] = {
+					name = "Ebb and Flow",
+					storageId = Storage.SoulWar.Mission03,
+					missionId = 514209,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return string.format("Kill 20 Hazardous Phantom to kill  Goshnar's Spite. You killed %d/20 Hazardous Phantoms.\z
+							\nGoshnar's Spite: You killed %d/1",
+							(math.max(player:getStorageValue(Storage.SoulWar.HazardousPhantom.Counter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.BossKill.GoshnarsSpite), 0))
+						)
+					end
+				},
+				[4] = {
+					name = "Furious Crater",
+					storageId = Storage.SoulWar.Mission04,
+					missionId = 51494,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return ("Get the all orbis and kill Goshnar's Cruelty.")
+					end
+				},
+				[5] = {
+					name = "Mirrored Nightmare",
+					storageId = Storage.SoulWar.Mission05,
+					missionId = 515300,
+					startValue = 0,
+					endValue = 2,
+					description = function(player)
+						return string.format("Kill 25 of each Apparition\z\nSorcerer's Apparition: You killed %d/25\z
+						\nDruid's Apparition: You killed %d/25\z\nPaladin's Apparition: You killed %d/25\z
+						\nKnight's Apparition: You killed %d/25",
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.SorcererCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.DruidCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.PaladinCounter), 0)),
+							(math.max(player:getStorageValue(Storage.SoulWar.MirrorImage.KnightCounter), 0))
+						)
+					end
+				}
+			}
+		},
+		[47] = {
+			name = "Feaster of Souls",
+			startStorageId = Storage.Quest.FeasterOfSouls.Quest,
+			startStorageValue = 1,
+			missions = {}
 		}
 	}
 end

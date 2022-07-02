@@ -17,6 +17,11 @@ function loginEvents.onLogin(player)
 		--Quests
 		--Adventurers Guild Quest
 		"Thegreatdragonhuntkill",
+		-- Soul War
+		"TheHazardousPhantomHuntkill",
+		"MirrorImageHuntKill",
+		"SoulWarBosses",
+		-- "ClockOfTerror",
 		--Bigfoot Burden Quest
 		"BossesWarzone",
 		"ParasiteWarzone",

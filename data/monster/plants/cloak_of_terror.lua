@@ -72,6 +72,10 @@ monster.light = {
 	color = 0
 }
 
+-- monster.events = {
+-- 	"ClockOfTerror"
+-- }
+
 monster.voices = {
 	interval = 5000,
 	chance = 10,

@@ -153,5 +153,10 @@ LeverUnique = {
 	[30029] = {
 		itemId = 9825,
 		itemPos = {x = 33454, y = 31493, z = 13}
+	},
+	-- Path: data\scripts\actions\quests\soul_war\goshnars_spite.lua
+	[30030] = {
+		itemId = 9825,
+		itemPos = {x = 33454, y = 31493, z = 13}
 	}
 }
